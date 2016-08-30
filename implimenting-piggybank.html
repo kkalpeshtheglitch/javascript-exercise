@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welocme to Learing to Javascript</title>
+  	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<!-- <div id="demo"></div> -->
+		<!-- <button onclick="myFunction()">click</button> -->
+	</div>
+</body>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+  var base = {
+      deposit : deposit,
+      withdraw :withdraw,
+      statement : statement
+  };
+
+  var pg = {
+      balance : 0,
+      lt : 0,
+      __proto__ : base
+  };
+
+  var pg2 = {
+      balance : 0,
+      lt : 0,
+      __proto__ : base
+  };
+
+  function deposit(v)
+  {
+    this.balance = this.balance + v;
+    this.lt = v;
+  }
+
+  function withdraw(v)
+  {
+    if(pg.balance >= v){
+        this.balance = this.balance - v;
+        lt = -v;
+    }else {
+        console.log('insufficient balance');
+    }
+  }
+
+  function statement(){
+    console.log("balance = " + this.balance);
+    console.log("lt = " + this.lt);
+  }
+
+  pg.deposit(100);
+  pg.statement();
+  pg.withdraw(50);
+  pg.statement();
+  pg.deposit(200);
+  pg.statement();
+  pg.withdraw(300);
+  pg.statement();
+
+  pg2.deposit(100);
+  pg2.statement()
+  pg2.withdraw(50);
+  pg2.statement();
+  pg2.deposit(200);
+  pg2.statement()
+  pg2.withdraw(300);
+  pg2.statement();
+
+</script>
+</html>

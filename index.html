@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welocme to Learing to Javascript</title>
+  	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+	<style type="text/css">
+		#popup {
+			background:rgba(0,0,0,.8);
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: none;
+		}
+
+		.popup-inner {
+			width: 500px;
+			height: 300px;
+			background: #fff;
+			margin: 15% auto 0;
+		}
+
+
+	</style>
+</head>
+<body>
+
+	<br>
+	<section>
+		<div class="row">
+			<div class="container">
+				<div class="col-lg-2 col-md-2">
+					<input type="text" value="8" id="main-value">
+				</div> 
+
+				<div class="col-lg-2 col-md-2 text-center">
+					<button id="puls">+</button>
+					<button id="minus">-</button>
+					<button id="multiplay">x</button>
+					<button id="diveded">/</button>
+				</div> 
+
+				<div class="col-lg-2 col-md-2">
+					<input type="text" value="" id="second-value">
+				</div>
+
+				<div class="col-lg-1 col-md-1">
+					<p>=</p>
+				</div> 
+
+				<div class="col-lg-5 col-md-5">
+					<input type="text" id="answer" style="width:100%"/>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- <div id="demo"></div> -->
+	<!-- <button id="trigger-popup">Open Popup</button> -->
+</body>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript">
+	var ans = $('#answer');
+	var puls_sign = $('#puls');
+	var minus = $('#minus');
+	var diveded = $('#diveded');
+	var multiplay_sign = $('#multiplay');
+
+	$(document).ready(function(){
+
+		function multiplyVal(){
+			var firstValue = $('#main-value').val();
+			var secondValue = $('#second-value').val();
+
+			$(ans).val(firstValue*secondValue);
+		}
+
+		$(multiplay_sign).click(function(){
+			$("input").change(multiplyVal);
+		    multiplyVal();
+	    });
+
+
+	    function pulsVal() {
+	    	var firstValue = $('#main-value').val();
+			var secondValue = $('#second-value').val();
+			var temp = parseInt(firstValue)+parseInt(secondValue);
+			$(ans).val(temp);
+	    }
+
+	    $(puls_sign).click(function(){
+			$("input").change(pulsVal);
+		    pulsVal();
+	    });
+
+
+	    function minusVal() {
+	    	var firstValue = $('#main-value').val();
+			var secondValue = $('#second-value').val();
+
+			$(ans).val(firstValue-secondValue);
+	    }
+
+	    $(minus).click(function(){
+			$("input").change(minusVal);
+		    minusVal();
+	    });
+
+	    function diviedVal() {
+	    	var firstValue = $('#main-value').val();
+			var secondValue = $('#second-value').val();
+
+			$(ans).val(firstValue/secondValue);
+	    }
+
+	    $(diveded).click(function(){
+			$("input").change(diviedVal);
+		    diviedVal();
+	    });
+
+		
+});
+
+</script>
+</html>
